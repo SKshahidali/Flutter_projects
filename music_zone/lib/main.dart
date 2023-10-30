@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:music_zone/screens/homescreen.dart';
+import 'package:get/get.dart';
+import 'package:music_zone/screens/login.dart';
+import 'package:music_zone/screens/signup.dart';
+import 'package:music_zone/screens/splashscreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +15,18 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:HomeScreen(),
+      home: SplashScreen(),
+      getPages: [
+        GetPage(name: '/SplashScreen', page:() => SplashScreen()),
+        GetPage(name: '/HomeScreen', page:() => HomeScreen()),
+        GetPage(name: '/Login', page:() => LoginPage()),
+        GetPage(name: '/SignUp', page:() => SignUppage()),
+      ],
     );
   }
 }
