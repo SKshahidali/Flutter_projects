@@ -4,21 +4,25 @@ import 'package:music_zone/widgets/colors.dart';
 class LoginButton extends StatelessWidget {
   const LoginButton({
     super.key,
-    required this.LoginIcon,
+    required this.LoginIconPath,
     required this.onpressed,
     });
-final IconData LoginIcon;
+final String LoginIconPath;
 final Function() onpressed;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        shape:BoxShape.circle,
-        border: Border.all(width: 2,color: yellow)
-      ),
-      child: IconButton(
-        icon: Icon(LoginIcon,color: yellow,size: 24,),
-      onPressed: onpressed,
+    return Padding(
+      padding: const EdgeInsets.only(right:8.0),
+      child: Container(
+        height: 40,
+        decoration: BoxDecoration(
+          shape:BoxShape.circle,
+          border: Border.all(width: 2,color: yellow)
+        ),
+        child: IconButton(
+          icon: Image.asset(LoginIconPath,fit: BoxFit.cover,color: yellow,),
+        onPressed: onpressed,
+        ),
       ),
     );
   }
