@@ -21,12 +21,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.yellow,
       ),
       home: SplashScreen(),
-      getPages: [
-        GetPage(name: '/SplashScreen', page:() => SplashScreen()),
-        GetPage(name: '/HomeScreen', page:() => HomeScreen()),
-        GetPage(name: '/Login', page:() => LoginPage()),
-        GetPage(name: '/SignUp', page:() => SignUppage()),
-      ],
     );
   }
 }

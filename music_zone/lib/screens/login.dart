@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:music_zone/widgets/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:music_zone/widgets/loginbuttons.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -93,17 +92,37 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 30,),
           // <-----> Login Button <-----> //
 
-        SizedBox(
-          width:MediaQuery.of(context).size.width * (0.5),
-          height: 50,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                gradient: yellowgradient,
                 borderRadius: BorderRadius.circular(15)
-              )
+              ),
+              width: MediaQuery.of(context).size.width * 0.5,
+              height: 50,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.transparent,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15)
+                  )
+                ),
+                onPressed: (){},
+                 child:Text("Sign In",style:GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w600,color: Colors.black),)),
             ),
-            onPressed: (){},
-             child:Text("Sign In",style:GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500,color: Colors.black),)))
+                 const SizedBox(height: 20,),
+                 Text("OR",style: GoogleFonts.poppins(fontSize: 14,fontWeight: FontWeight.w400,color: Colors.white),),
+                 const SizedBox(height: 20,),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    LoginButton(LoginIcon: Icons.facebook_outlined, onpressed: (){})
+                  ],
+                 )
+          ],
+        )
         ],
       ),
     );
